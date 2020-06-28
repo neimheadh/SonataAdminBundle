@@ -426,7 +426,7 @@ abstract class BaseFieldDescription implements FieldDescriptionInterface
         $this->help = $help;
     }
 
-    public function getHelp(): string
+    public function getHelp(): ?string
     {
         return $this->help;
     }
