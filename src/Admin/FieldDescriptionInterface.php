@@ -150,7 +150,7 @@ interface FieldDescriptionInterface
      *
      * @return array the field mapping definition
      */
-    public function getFieldMapping(): array;
+    public function getFieldMapping(): ?array;
 
     /**
      * set the parent association mappings information.

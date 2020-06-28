@@ -263,7 +263,7 @@ abstract class BaseFieldDescription implements FieldDescriptionInterface
         return $this->associationMapping;
     }
 
-    public function getFieldMapping(): array
+    public function getFieldMapping(): ?array
     {
         return $this->fieldMapping;
     }
