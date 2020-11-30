@@ -64,7 +64,7 @@ class CRUDController extends AbstractController
         $this->container = $container;
 
         $this->configure();
-        
+
         return $container;
     }
 
