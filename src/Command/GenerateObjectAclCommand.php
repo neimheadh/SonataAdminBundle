@@ -13,11 +13,9 @@ declare(strict_types=1);
 
 namespace Sonata\AdminBundle\Command;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
 use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Admin\Pool;
 use Sonata\AdminBundle\Util\ObjectAclManipulatorInterface;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -64,23 +62,6 @@ class GenerateObjectAclCommand extends QuestionableCommand
     {
         $this->pool = $pool;
         $this->aclObjectManipulators = $aclObjectManipulators;
-        if (null !== $registry && (!$registry instanceof RegistryInterface && !$registry instanceof ManagerRegistry)) {
-            if (!$registry instanceof ManagerRegistry) {
-                @trigger_error(sprintf(
-                    "Passing an object that doesn't implement %s as argument 3 to %s() is deprecated since sonata-project/admin-bundle 3.56.",
-                    ManagerRegistry::class,
-                    __METHOD__
-                ), E_USER_DEPRECATED);
-            }
-
-            throw new \TypeError(sprintf(
-                'Argument 3 passed to %s() must be either an instance of %s or %s, %s given.',
-                __METHOD__,
-                RegistryInterface::class,
-                ManagerRegistry::class,
-                \is_object($registry) ? \get_class($registry) : \gettype($registry)
-            ));
-        }
         $this->registry = $registry;
 
         parent::__construct();
