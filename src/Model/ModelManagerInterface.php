@@ -30,7 +30,7 @@ interface ModelManagerInterface extends DatagridManagerInterface
      *
      * @return FieldDescriptionInterface
      */
-    public function getNewFieldDescriptionInstance($class, $name, array $options = []);
+    public function getNewFieldDescriptionInstance(string $class, string $name, array $options = []);
 
     /**
      * @param object $object
